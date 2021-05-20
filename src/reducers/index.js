@@ -21,10 +21,9 @@ export const signStateReducer = (state = INITIAL_STATE, action) => {
 
 export const timeSlotsReducer = (state = INITIAL_SLOTS, action) => {
   const { type, payload } = action;
-
   switch (type) {
     case FETCH_SLOTS:
-      return { ...state };
+      return { payload };
     default:
       return state;
   }

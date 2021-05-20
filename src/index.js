@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { signStateReducer, timeSlotsReducer } from "./reducers/index";
 
@@ -12,7 +13,10 @@ const reducers = combineReducers({
   slots: timeSlotsReducer,
 });
 
-const store = createStore(reducers, composeWithDevTools());
+const store = createStore(
+  reducers,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 store.subscribe(() => {
   console.log(store.getState());

@@ -1,14 +1,22 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSlots } from "../../actions";
 import TimeRow from "../TimeRow/TimeRow";
 
 const Board = () => {
+  const dispatch = useDispatch();
   const slotsByRows = useSelector((state) => Object.values(state.slots));
+
+  useEffect(() => {
+    dispatch(fetchSlots());
+  }, [dispatch]);
 
   const rowsBoard = () => {
     const arrayOfRows = [];
     for (let index = 0; index < 8; index++) {
-      arrayOfRows.push(<TimeRow slots={slotsByRows[index]} key={index} />);
+      arrayOfRows.push(
+        <TimeRow slots={slotsByRows[index]} key={index} row={index} />
+      );
     }
     return arrayOfRows;
   };
