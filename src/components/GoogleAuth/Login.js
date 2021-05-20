@@ -1,11 +1,15 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import GoogleLogin from "react-google-login";
 import { GOOGLEID } from "../../keys";
+import { signIn } from "../../actions/index";
 
 const Login = () => {
+  const dispatch = useDispatch();
+
   const responseSuccess = (response) => {
-    console.log("Logeado!!!!");
-    console.log(response);
+    const { googleId } = response;
+    dispatch(signIn(googleId));
   };
 
   const responseFailure = () => {
@@ -17,7 +21,7 @@ const Login = () => {
       <GoogleLogin
         className='ui button'
         clientId={GOOGLEID}
-        buttonText='Sign In with Google'
+        buttonText='Sign In'
         onSuccess={responseSuccess}
         onFailure={responseFailure}
         cookiePolicy={"single_host_origin"}

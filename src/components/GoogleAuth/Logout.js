@@ -1,15 +1,18 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { GoogleLogout } from "react-google-login";
 import { GOOGLEID } from "../../keys";
+import { signOut } from "../../actions/index";
 
 const Logout = () => {
-  const responseSuccess = (response) => {
-    console.log(response);
-    console.log("Log out completed!!");
+  const dispatch = useDispatch();
+
+  const responseSuccess = () => {
+    dispatch(signOut());
   };
 
   const responseFailure = (response) => {
-    console.log(response);
     console.log("Something Went Wrong!!");
   };
 
