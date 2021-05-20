@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import Login from "../GoogleAuth/Login";
 import Logout from "../GoogleAuth/Logout";
 
@@ -12,9 +13,15 @@ const Header = () => {
 
   return (
     <div className='ui secondary pointing menu'>
-      <a className='item'>Reparto</a>
-      <a className='item'>FAQ</a>
-      <a className='item active'>Repartidores</a>
+      <NavLink to='/' className='item'>
+        Reparto
+      </NavLink>
+      <NavLink to='/dealers' className='item'>
+        Repartidores
+      </NavLink>
+      <NavLink to='/faq' className='item'>
+        FAQ
+      </NavLink>
       <div className='right menu'>{loginButton()}</div>
     </div>
   );
