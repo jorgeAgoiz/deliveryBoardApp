@@ -2,12 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 const Modal = (props) => {
-
-    console.log("Modal Loaded")
+    const { outSideDiv } = props;
 
     const modalWindow = () => {
         return (
-            <div className='ui dimmer modals visible active'>
+            <div onClick={outSideDiv} className='ui dimmer modals visible active'>
                 <div
                     className='ui standard modal visible active'
                 >
@@ -28,4 +27,7 @@ const Modal = (props) => {
 export default Modal;
 
 /* Modal empezada, necesitamos añadir los estilos y los
-eventos */
+eventos .
+
+Ultimo añadido funcion para volver a la lista al pinchar fuera
+del modal*/
