@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import Forbidden from "../Forbidden/Forbidden";
 import FaqSection from "../FaqSection/FaqSection";
 import Dealers from "../Dealers/Dealers";
+import ToAssign from "../ToAssign/ToAssign";
 
 const App = () => {
   const isSignedIn = useSelector((state) => state.auth.isSignedIn);
@@ -23,6 +24,7 @@ const App = () => {
           <Route path='/' exact component={showMainContent} />
           <Route path='/faq' exact component={FaqSection} />
           <Route path='/dealers' exact component={Dealers} />
+          <Route path='/toassign/:column/:row' exact component={ToAssign} />
         </Switch>
       </BrowserRouter>
     </div>
@@ -34,9 +36,11 @@ export default App;
 /* Ultimos avances:
   Hemos conseguido crear cada componente de slotTime.
   Tenemos estado inicial en la store.
+
   Siguiente Paso:
   Configurar el servidor para que guarde los datos.
-  Incluir llamadas a API en reducers. 
+  Incluir llamadas a API en reducers.
   Empezar a personalizar el estado del componente slot.
   --Mirar TimeSlot Component
+
 */
