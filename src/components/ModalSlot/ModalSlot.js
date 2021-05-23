@@ -2,21 +2,24 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 const Modal = (props) => {
-    const { outSideDiv } = props;
+    const { outSideDiv, inSideDiv, actions, content, assign } = props;
 
     const modalWindow = () => {
         return (
             <div onClick={outSideDiv} className='ui dimmer modals visible active'>
                 <div
+                    onClick={inSideDiv}
                     className='ui standard modal visible active'
                 >
-                    <h1>Modal Window</h1>
+                    <div className="ui centered padded grid">{content}</div>
+                    <div class="ui divider"></div>
+                    <div className="ui centered padded grid">{assign}</div>
+                    <div class="ui divider"></div>
+                    <div className="actions">{actions}</div>
                 </div>
             </div>
         );
     }
-
-    const stopPropagation = (event) => event.stopPropagation();
 
     return ReactDOM.createPortal(
         modalWindow(),
