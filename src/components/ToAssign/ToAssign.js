@@ -9,22 +9,24 @@ const ToAssign = (props) => {
     const freeDealers = useSelector(state => {
         const rowSelected = Object.values(state.slots);
         const arrayRowSelected = Object.values(rowSelected[row]);
-        return 8 - arrayRowSelected[column].dealersBusy;
+        return arrayRowSelected[column].dealersBusy;
     })
 
     const comeBackToBoard = () => history.push("/");
     const stopPropagation = (event) => event.stopPropagation();
     const mainContent = (
         <>
-            <h3>Free Dealers: {freeDealers}</h3>
+            <h3>Free Dealers: {8 - freeDealers}</h3>
         </>
     );
 
     const assignButtons = (
-        <div className="ui buttons">
-            <button className="ui red button"> - </button>
-            <div className="or" data-text="5"></div>
-            <button className="ui positive button"> + </button>
+        <div className="ui center aligned segment">
+            <button className="ui orange button">-</button>
+            <div className="ui circular big grey label">
+                <i className="truck icon"></i>{freeDealers}
+            </div>
+            <button className="ui green button">+</button>
         </div>
     )
     /* Continuaremos aqui dandole funcionalidad a estos botones */

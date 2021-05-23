@@ -9,12 +9,11 @@ const Modal = (props) => {
             <div onClick={outSideDiv} className='ui dimmer modals visible active'>
                 <div
                     onClick={inSideDiv}
-                    className='ui standard modal visible active'
+                    className='ui standard tiny modal visible active'
                 >
-                    <div className="ui centered padded grid">{content}</div>
-                    <div class="ui divider"></div>
-                    <div className="ui centered padded grid">{assign}</div>
-                    <div class="ui divider"></div>
+                    <div className="header">{content}</div>
+                    <div className="content">{assign}</div>
+
                     <div className="actions">{actions}</div>
                 </div>
             </div>
