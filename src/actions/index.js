@@ -1,5 +1,5 @@
 import { deliveries } from "../services/api";
-import { FETCH_SLOTS, SIGN_IN, SIGN_OUT } from "./types";
+import { FETCH_SLOTS, SIGN_IN, SIGN_OUT, ADD_DEALERS } from "./types";
 
 export const signIn = (googleID) => {
   return {
@@ -16,16 +16,26 @@ export const signOut = () => {
   };
 };
 
-/* export const saveTimeSlots = (completeBoard) => async (dispatch) => {
-  const boardSlots = await deliveries.post("/slots", completeBoard);
-  console.log(boardSlots);
-}; */
-
 export const fetchSlots = () => async () => {
-  const allSlotsFromDB = await deliveries.get("/slots");
-
   return {
     type: FETCH_SLOTS,
-    payload: allSlotsFromDB.data,
+  };
+};
+
+export const addDealersAssigned = ({ id }) => {
+  return {
+    type: ADD_DEALERS,
+    payload: {
+      id,
+    },
+  };
+};
+
+export const subtractDealersAssigned = ({ id }) => {
+  return {
+    type: ADD_DEALERS,
+    payload: {
+      id,
+    },
   };
 };

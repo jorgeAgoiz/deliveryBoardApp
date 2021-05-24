@@ -24,7 +24,7 @@ const App = () => {
           <Route path='/' exact component={showMainContent} />
           <Route path='/faq' exact component={FaqSection} />
           <Route path='/dealers' exact component={Dealers} />
-          <Route path='/toassign/:column/:row' exact component={ToAssign} />
+          <Route path='/toassign/:idslot' exact component={ToAssign} />
         </Switch>
       </BrowserRouter>
     </div>
