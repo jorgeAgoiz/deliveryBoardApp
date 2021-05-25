@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "../ModalSlot/ModalSlot";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +18,7 @@ const ToAssign = (props) => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const freeDealers = slotSelected.dealersBusy;
+  const [freeDealers, setFreeDealers] = useState(0);
 
   const comeBackToBoard = () => history.push("/");
   const stopPropagation = (event) => event.stopPropagation();
@@ -29,12 +29,27 @@ const ToAssign = (props) => {
   );
 
   const subtractDealers = () => {
-    dispatch(subtractDealersAssigned(slotSelected));
+    if (freeDealers > 0) {
+      setFreeDealers(freeDealers - 1);
+      //dispatch(subtractDealersAssigned(slotSelected));
+    } else {
+      console.log("All dealers are free!!");
+    }
   };
 
   const addDealers = () => {
-    dispatch(addDealersAssigned(slotSelected));
+    if (freeDealers < 8) {
+      setFreeDealers(freeDealers + 1);
+      //dispatch(addDealersAssigned(slotSelected));
+    } else {
+      console.log("All dealers are busy!!!")
+    }
+
   };
+
+  const dispatchDealers = () => {
+    console.log("Modificar los actions y reducers")
+  }
 
   const assignButtons = (
     <div className='ui center aligned segment'>
@@ -56,7 +71,7 @@ const ToAssign = (props) => {
       <button className='ui red button' onClick={comeBackToBoard}>
         Cancel
       </button>
-      <button className='ui primary button'>Save</button>
+      <button className='ui primary button' onClick={dispatchDealers}>Save</button>
     </>
   );
 
@@ -75,5 +90,5 @@ const ToAssign = (props) => {
 
 export default ToAssign;
 
-/* Ahora necesitamos añadir los estilos en funcion de si estan todos asignados, establecer el limite de 8 para añadir y restar, 
+/* Ahora necesitamos añadir los estilos en funcion de si estan todos asignados, establecer el limite de 8 para añadir y restar,
 al hacer un save guardar en el backend y si das cancel dejarlo como estabamos */

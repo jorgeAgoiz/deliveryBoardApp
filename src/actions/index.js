@@ -1,5 +1,5 @@
 import { deliveries } from "../services/api";
-import { FETCH_SLOTS, SIGN_IN, SIGN_OUT, ADD_DEALERS } from "./types";
+import { FETCH_SLOTS, SIGN_IN, SIGN_OUT, ADD_DEALERS, SUBTRACT_DEALERS } from "./types";
 
 export const signIn = (googleID) => {
   return {
@@ -33,7 +33,7 @@ export const addDealersAssigned = ({ id }) => {
 
 export const subtractDealersAssigned = ({ id }) => {
   return {
-    type: ADD_DEALERS,
+    type: SUBTRACT_DEALERS,
     payload: {
       id,
     },
