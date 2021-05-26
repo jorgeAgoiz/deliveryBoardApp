@@ -2,10 +2,9 @@ import {
   SIGN_IN,
   SIGN_OUT,
   INITIAL_STATE,
-  ADD_DEALERS,
   FETCH_SLOTS,
   DEALERS_BY_SLOT,
-  SUBTRACT_DEALERS,
+  ASSIGN_DEALERS,
 } from "../actions/types";
 
 export const signStateReducer = (state = INITIAL_STATE, action) => {
@@ -26,7 +25,15 @@ export const timeSlotsReducer = (state = DEALERS_BY_SLOT, action) => {
   switch (type) {
     case FETCH_SLOTS:
       return state;
-    case ADD_DEALERS:
+    case ASSIGN_DEALERS:
+      const { id, dealers } = payload;
+      return state.map(slot => {
+        if (slot.id === id) {
+          slot.dealersBusy = dealers;
+        }
+        return slot;
+      })
+    /* case ADD_DEALERS:
       return state.map((slot) => {
         if (slot.id === payload.id) {
           const result = {};
@@ -45,7 +52,7 @@ export const timeSlotsReducer = (state = DEALERS_BY_SLOT, action) => {
           return result;
         }
         return slot;
-      });
+      }); */
     default:
       return state;
   }

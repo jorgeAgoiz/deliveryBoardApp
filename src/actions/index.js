@@ -1,5 +1,5 @@
 import { deliveries } from "../services/api";
-import { FETCH_SLOTS, SIGN_IN, SIGN_OUT, ADD_DEALERS, SUBTRACT_DEALERS } from "./types";
+import { FETCH_SLOTS, SIGN_IN, SIGN_OUT, ASSIGN_DEALERS } from "./types";
 
 export const signIn = (googleID) => {
   return {
@@ -22,20 +22,12 @@ export const fetchSlots = () => async () => {
   };
 };
 
-export const addDealersAssigned = ({ id }) => {
+export const assignDealers = ({ id, freeDealers }) => {
   return {
-    type: ADD_DEALERS,
+    type: ASSIGN_DEALERS,
     payload: {
       id,
-    },
-  };
-};
-
-export const subtractDealersAssigned = ({ id }) => {
-  return {
-    type: SUBTRACT_DEALERS,
-    payload: {
-      id,
+      dealers: freeDealers
     },
   };
 };

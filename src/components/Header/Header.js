@@ -13,14 +13,14 @@ const Header = () => {
 
   return (
     <div className='ui secondary pointing menu'>
-      <NavLink to='/' className='item'>
-        Reparto
+      <NavLink exact to='/' className='item'>
+        Distribution
       </NavLink>
-      <NavLink to='/dealers' className='item'>
-        Repartidores
+      <NavLink exact to='/dealers' className='item'>
+        Dealers
       </NavLink>
-      <NavLink to='/faq' className='item'>
-        FAQ
+      <NavLink exact to='/faq' className='item'>
+        How
       </NavLink>
       <div className='right menu'>{loginButton()}</div>
     </div>

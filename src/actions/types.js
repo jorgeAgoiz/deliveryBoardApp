@@ -2,8 +2,7 @@
 export const SIGN_IN = "SIGN_IN";
 export const SIGN_OUT = "SIGN_OUT";
 export const FETCH_SLOTS = "FETCH_SLOTS";
-export const ADD_DEALERS = "ADD_DEALERS";
-export const SUBTRACT_DEALERS = "SUBTRACT_DEALERS";
+export const ASSIGN_DEALERS = "ASSIGN_DEALERS";
 
 /* Constants Initial States */
 export const INITIAL_STATE = {

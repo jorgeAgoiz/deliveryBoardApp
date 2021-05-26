@@ -13,6 +13,10 @@ const TimeSlot = ({ slot, column, row }) => {
     return result[0];
   });
 
+  const slotFull = () => {
+    return idStore.dealersBusy >= 8 ? "ui button column red" : "ui button column teal";
+  }
+
   const onSelecSlot = () => {
     history.push(`/toassign/${idSlotParsed}`);
   };
@@ -20,7 +24,7 @@ const TimeSlot = ({ slot, column, row }) => {
   return (
     <div
       onClick={onSelecSlot}
-      className='column teal'
+      className={slotFull()}
       style={{ marginLeft: "2px", marginRight: "2px" }}
     >
       <h3 className='ui'>{slotTime}</h3>

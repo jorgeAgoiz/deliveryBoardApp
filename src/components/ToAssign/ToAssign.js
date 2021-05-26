@@ -3,8 +3,7 @@ import Modal from "../ModalSlot/ModalSlot";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addDealersAssigned,
-  subtractDealersAssigned,
+  assignDealers
 } from "../../actions/index";
 
 const ToAssign = (props) => {
@@ -18,7 +17,8 @@ const ToAssign = (props) => {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const [freeDealers, setFreeDealers] = useState(0);
+  const [freeDealers, setFreeDealers] = useState(slotSelected.dealersBusy);
+  /* Aqui el problema, usar un useState y no un estado global de redux */
 
   const comeBackToBoard = () => history.push("/");
   const stopPropagation = (event) => event.stopPropagation();
@@ -31,7 +31,6 @@ const ToAssign = (props) => {
   const subtractDealers = () => {
     if (freeDealers > 0) {
       setFreeDealers(freeDealers - 1);
-      //dispatch(subtractDealersAssigned(slotSelected));
     } else {
       console.log("All dealers are free!!");
     }
@@ -48,7 +47,9 @@ const ToAssign = (props) => {
   };
 
   const dispatchDealers = () => {
-    console.log("Modificar los actions y reducers")
+    const { id } = slotSelected;
+    dispatch(assignDealers({ id, freeDealers }));
+    history.push("/")
   }
 
   const assignButtons = (

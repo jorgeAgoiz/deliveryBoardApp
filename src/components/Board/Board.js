@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchSlots } from "../../actions";
 import TimeRow from "../TimeRow/TimeRow";
 import { INITIAL_SLOTS } from "../../actions/types";
 
 const Board = () => {
+
   const dispatch = useDispatch();
-  const slotsByRows = Object.values(INITIAL_SLOTS);
+  const slotsByRows = Object.values(INITIAL_SLOTS)
 
   useEffect(() => {
     dispatch(fetchSlots());
