@@ -7,6 +7,7 @@ import Forbidden from "../Forbidden/Forbidden";
 import FaqSection from "../FaqSection/FaqSection";
 import Dealers from "../Dealers/Dealers";
 import ToAssign from "../ToAssign/ToAssign";
+import Footer from "../Footer/Footer";
 
 const App = () => {
   const isSignedIn = useSelector((state) => state.auth.isSignedIn);
@@ -27,6 +28,7 @@ const App = () => {
           <Route path='/toassign/:idslot' exact component={ToAssign} />
         </Switch>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 };
