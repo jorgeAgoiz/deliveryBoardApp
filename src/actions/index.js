@@ -1,4 +1,3 @@
-import { deliveries } from "../services/api";
 import { FETCH_SLOTS, SIGN_IN, SIGN_OUT, ASSIGN_DEALERS } from "./types";
 
 export const signIn = (googleID) => {

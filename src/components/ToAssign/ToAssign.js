@@ -18,7 +18,6 @@ const ToAssign = (props) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [freeDealers, setFreeDealers] = useState(slotSelected.dealersBusy);
-  /* Aqui el problema, usar un useState y no un estado global de redux */
 
   const comeBackToBoard = () => history.push("/");
   const stopPropagation = (event) => event.stopPropagation();
@@ -39,7 +38,6 @@ const ToAssign = (props) => {
   const addDealers = () => {
     if (freeDealers < 8) {
       setFreeDealers(freeDealers + 1);
-      //dispatch(addDealersAssigned(slotSelected));
     } else {
       console.log("All dealers are busy!!!")
     }
@@ -91,5 +89,3 @@ const ToAssign = (props) => {
 
 export default ToAssign;
 
-/* Ahora necesitamos añadir los estilos en funcion de si estan todos asignados, establecer el limite de 8 para añadir y restar,
-al hacer un save guardar en el backend y si das cancel dejarlo como estabamos */

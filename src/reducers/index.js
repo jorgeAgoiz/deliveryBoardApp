@@ -33,26 +33,6 @@ export const timeSlotsReducer = (state = DEALERS_BY_SLOT, action) => {
         }
         return slot;
       })
-    /* case ADD_DEALERS:
-      return state.map((slot) => {
-        if (slot.id === payload.id) {
-          const result = {};
-          result["id"] = slot.id;
-          result["dealersBusy"] = slot.dealersBusy + 1;
-          return result;
-        }
-        return slot;
-      });
-    case SUBTRACT_DEALERS:
-      return state.map((slot) => {
-        if (slot.id === payload.id) {
-          const result = {};
-          result["id"] = slot.id;
-          result["dealersBusy"] = slot.dealersBusy - 1;
-          return result;
-        }
-        return slot;
-      }); */
     default:
       return state;
   }

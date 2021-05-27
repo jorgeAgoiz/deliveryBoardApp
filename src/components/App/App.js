@@ -34,15 +34,3 @@ const App = () => {
 };
 
 export default App;
-
-/* Ultimos avances:
-  Hemos conseguido crear cada componente de slotTime.
-  Tenemos estado inicial en la store.
-
-  Siguiente Paso:
-  Configurar el servidor para que guarde los datos.
-  Incluir llamadas a API en reducers.
-  Empezar a personalizar el estado del componente slot.
-  --Mirar TimeSlot Component
-
-*/

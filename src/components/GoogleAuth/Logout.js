@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { GoogleLogout } from "react-google-login";
-/* import { GOOGLEID } from "../../keys"; */
 import { signOut } from "../../actions/index";
+const GOOGLEID = process.env.REACT_APP_GOOGLE_ID;
 
 const Logout = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Logout = () => {
     <>
       <GoogleLogout
         className='ui button'
-        clientId={process.env.GOOGLEID}
+        clientId={GOOGLEID}
         buttonText='Sign Out'
         onFailure={responseFailure}
         onLogoutSuccess={responseSuccess}

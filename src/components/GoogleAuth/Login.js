@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import GoogleLogin from "react-google-login";
-/* import { GOOGLEID } from "../../keys"; */
 import { signIn } from "../../actions/index";
+const GOOGLEID = process.env.REACT_APP_GOOGLE_ID;
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Login = () => {
     <>
       <GoogleLogin
         className='ui button'
-        clientId={process.env.GOOGLEID}
+        clientId={GOOGLEID}
         buttonText='Sign In'
         onSuccess={responseSuccess}
         onFailure={responseFailure}

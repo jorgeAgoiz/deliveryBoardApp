@@ -1,6 +1,5 @@
 import React from "react";
 
-/* Creamos componente card y asi lo hacemos reutilizable, para los avatares hacemos llamada a api de avatares */
 const Dealers = () => {
   return (
     <>
