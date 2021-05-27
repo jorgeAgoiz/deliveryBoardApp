@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { GoogleLogout } from "react-google-login";
-import { GOOGLEID } from "../../keys";
+/* import { GOOGLEID } from "../../keys"; */
 import { signOut } from "../../actions/index";
 
 const Logout = () => {
