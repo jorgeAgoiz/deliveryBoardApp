@@ -20,7 +20,7 @@ const Logout = () => {
     <>
       <GoogleLogout
         className='ui button'
-        clientId={GOOGLEID}
+        clientId={process.env.GOOGLEID}
         buttonText='Sign Out'
         onFailure={responseFailure}
         onLogoutSuccess={responseSuccess}

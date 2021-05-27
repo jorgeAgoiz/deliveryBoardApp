@@ -20,7 +20,7 @@ const Login = () => {
     <>
       <GoogleLogin
         className='ui button'
-        clientId={GOOGLEID}
+        clientId={process.env.GOOGLEID}
         buttonText='Sign In'
         onSuccess={responseSuccess}
         onFailure={responseFailure}
