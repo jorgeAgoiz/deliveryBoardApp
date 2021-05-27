@@ -12,8 +12,9 @@ const Login = () => {
     dispatch(signIn(googleId));
   };
 
-  const responseFailure = () => {
+  const responseFailure = (res) => {
     console.log("something went wrong!!");
+    console.log(res)
   };
 
   return (
