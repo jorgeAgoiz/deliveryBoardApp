@@ -14,6 +14,7 @@ const Logout = () => {
 
   const responseFailure = (response) => {
     console.log("Something Went Wrong!!");
+    console.log(response)
   };
 
   return (
